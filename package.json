@@ -1,0 +1,36 @@
+{
+  "name": "NextJS-ROS-Control",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "NODE_ENV=production next start",
+    "analyze": "cross-env ANALYZE=1 next build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://my.repo/"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://my.repo/issues"
+  },
+  "homepage": "https://my.repo/",
+  "dependencies": {
+    "next": "^7.0.0",
+    "@zeit/next-css": "^0.2.1-canary.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "reactstrap": "^6.4.0",
+    "roslib": "^0.20.0",
+    "style-loader": "^0.23.0",
+    "bootstrap": "^4.1.3",
+    "cross-env": "^5.2.0",
+    "file-loader": "^2.0.0",
+    "webpack-bundle-analyzer": "^2.13.1"
+  }
+}
