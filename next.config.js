@@ -16,8 +16,23 @@ module.exports = withCSS({
     config.resolve.alias.components = path.resolve(__dirname, 'components')
     config.resolve.alias.clientOnly = path.resolve(__dirname, 'client-only')
 
-    // Import these filetypes with file loader
-    // Things like LeafLet require this to not throw errors
+    // Leaflet requires different css loaders than Next.js uses
+    config.module.rules.push({
+      test: /leaflet\.css/,
+      use: [
+        'style-loader',
+        'css-loader',
+      ]
+    });
+
+    // To use the new css loader, we must disable the default as well
+    for (var i = 0; i < config.module.rules.length; i++) {
+      if (config.module.rules[i].test.test('example.css')) {
+        config.module.rules[i].exclude = /leaflet\.css/
+      }
+    }
+
+    // And the leaflet css tries to import some images too
     config.module.rules.push(
         {test: /\.(gif|svg|jpg|png)$/, use: ['file-loader']})
 
